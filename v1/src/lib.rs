@@ -28,6 +28,11 @@ pub extern fn kmain() -> ! {
     vga_buffer::WRITER.lock().write_str("Hello again").unwrap();
     write!(vga_buffer::WRITER.lock(), ", some numbers: {} {}", 13, 1.337).unwrap();
 
+    vga_buffer::WRITER.lock().write_a_at(0, 0);
+    vga_buffer::WRITER.lock().write_a_at(1, 0);
+    vga_buffer::WRITER.lock().write_a_at(2, 0);
+    vga_buffer::WRITER.lock().write_a_at(3, 0);
+
     loop {}
 }
 

@@ -101,6 +101,14 @@ impl Writer {
         }
     }
 
+    pub fn write_a_at(&mut self, x: usize, y: usize) {
+        let color_code = self.color_code;
+        self.buffer.chars[y][x].write(ScreenChar {
+            ascii_character: b'a',
+            color_code
+        });
+    }
+
     fn new_line(&mut self) {
         for row in 1..VGA_BUFFER_HEIGHT {
             for col in 0..VGA_BUFFER_WIDTH {
